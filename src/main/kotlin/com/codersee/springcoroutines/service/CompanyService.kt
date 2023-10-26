@@ -26,14 +26,13 @@ class CompanyService(
     suspend fun findByName(name: String): Flow<Company> =
         companyRepository.findByNameContaining(name)
 
-    suspend fun deleteCompanyId(id:Long){
+    suspend fun deleteCompanyById(id: Long) {
         val foundCompany = companyRepository.findById(id)
 
-        if (foundCompany == null){
-            throw ResponseStatusException(HttpStatus.NOT_FOUND)
-        }else {
+        if (foundCompany == null)
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, "Company with id $id was not found.")
+        else
             companyRepository.deleteById(id)
-        }
     }
 
     suspend fun updateCompanyById(id: Long , companyRequest: Company): Company{

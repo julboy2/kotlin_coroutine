@@ -1,6 +1,5 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/application
-    username: root
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/
+    username: postgres
     password: qwer1234

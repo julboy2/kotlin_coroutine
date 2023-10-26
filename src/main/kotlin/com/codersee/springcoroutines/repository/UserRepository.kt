@@ -2,7 +2,8 @@ package com.codersee.springcoroutines.repository
 
 import com.codersee.springcoroutines.model.User
 import kotlinx.coroutines.flow.Flow
-import org.springframework.data.jdbc.repository.query.Query
+//import org.springframework.data.jdbc.repository.query.Query
+import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 
 interface UserRepository: CoroutineCrudRepository<User, Long> {

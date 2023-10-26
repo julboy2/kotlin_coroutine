@@ -3,7 +3,7 @@ package com.codersee.springcoroutines.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
-@Table("app_user")
+@Table("application.app_user")
 data class User(
     @Id val id: Long? = null ,
     val email: String ,

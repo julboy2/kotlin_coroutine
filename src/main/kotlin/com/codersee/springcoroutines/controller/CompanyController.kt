@@ -34,7 +34,9 @@ class CompanyController(
             company = companyRequest.toModel()
         )
             ?.toResponse()
-            ?: throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR)
+            ?: throw ResponseStatusException(
+                HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error during company creation."
+            )
 
     @GetMapping
     suspend fun findCompany(
@@ -62,7 +64,7 @@ class CompanyController(
 
     @DeleteMapping("/{id}")
     suspend fun deleteById(@PathVariable id: Long) {
-        companyService.deleteCompanyId(id)
+        companyService.deleteCompanyById(id)
     }
 
     @PutMapping("/{id}")
