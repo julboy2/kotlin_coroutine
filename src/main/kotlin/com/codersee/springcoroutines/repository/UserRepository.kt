@@ -12,6 +12,6 @@ interface UserRepository: CoroutineCrudRepository<User, Long> {
 
     fun findByCompanyId(companyId: Long): Flow<User>
 
-    @Query("select * from app_user where email = :email")
+    @Query("select * from application.app_user where email = :email")
     fun byEmail(email: String): Flow<User>
 }
